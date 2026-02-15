@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 4: Introduction to CSS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.3em;
+            text-decoration: none;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        nav .github-link {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            min-height: 100vh;
+            padding: 20px;
+            padding-top: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+        }
+
+        h1 {
+            color: #38f9d7;
+            border-bottom: 3px solid #38f9d7;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .topic {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #38f9d7;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .topic h3 {
+            color: #43e97b;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        li {
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .practice-section {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .practice-section h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .practice-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #ffc107;
+        }
+
+        .practice-item strong {
+            color: #38f9d7;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="Index.html" class="logo">📚 FSD Practicals</a>
+            <div class="nav-links">
+                <a href="Index.html">Home</a>
+                <a href="README.html">Guide</a>
+                <a href="Topic_Coverage_Summary.html">Topics</a>
+                <a href="Quick_Reference.html">Cheat Sheet</a>
+                <a href="Unit1_Intro_to_Web.html">Units ▼</a>
+                <a href="https://github.com/DhruvilThummar/FSD-Ipe.git" class="github-link" target="_blank">🔗
+                    GitHub</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Unit 4: Introduction to CSS</h1>
+
+        <div class="topic">
+            <h3>4.1 CSS Basics & Selectors</h3>
+            <p><strong>CSS Types:</strong></p>
+            <ul>
+                <li>Inline CSS - style attribute</li>
+                <li>Internal CSS - &lt;style&gt; tag in &lt;head&gt;</li>
+                <li>External CSS - separate .css file with &lt;link&gt; tag</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>CSS Selectors:</strong></p>
+            <ul>
+                <li>Element Selector: p, div, h1</li>
+                <li>ID Selector: #myId</li>
+                <li>Class Selector: .myClass</li>
+                <li>Attribute Selector: [type="text"]</li>
+                <li>Universal Selector: *</li>
+                <li>Descendant Selector: div p</li>
+                <li>Child Selector: div &gt; p</li>
+                <li>Grouping Selector: h1, h2, h3</li>
+                <li>Pseudo-class: :hover, :focus, :nth-child()</li>
+                <li>Pseudo-element: ::before, ::after, ::first-line</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>CSS Specificity:</strong> ID &gt; Class &gt; Element</p>
+        </div>
+
+        <div class="topic">
+            <h3>4.2 Background, Text & Font Properties</h3>
+            <p><strong>Background Properties:</strong></p>
+            <ul>
+                <li>background-color, background-image, background-repeat</li>
+                <li>background-position, background-size, background-attachment</li>
+                <li>background-clip, background (shorthand)</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Text Properties:</strong></p>
+            <ul>
+                <li>color, text-align, text-indent, text-transform</li>
+                <li>text-decoration, letter-spacing, word-spacing</li>
+                <li>line-height, text-shadow</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Font Properties:</strong></p>
+            <ul>
+                <li>font-family, font-size, font-style, font-weight</li>
+                <li>font-variant, font (shorthand)</li>
+                <li>Google Fonts via &lt;link&gt; or @import</li>
+            </ul>
+        </div>
+
+        <div class="topic">
+            <h3>4.3 Box Model & Layout</h3>
+            <p><strong>Box Model Properties:</strong></p>
+            <ul>
+                <li>margin, padding, width, height</li>
+                <li>border-style, border-width, border-color, border</li>
+                <li>box-sizing (content-box, border-box)</li>
+                <li>box-shadow</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Display Properties:</strong></p>
+            <ul>
+                <li>inline, block, inline-block, none</li>
+                <li>flex, grid</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Flexbox Properties:</strong></p>
+            <ul>
+                <li>display: flex; flex-direction (row, column)</li>
+                <li>justify-content, align-items, flex-wrap, gap</li>
+                <li>order, flex (shorthand)</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Grid Layout Properties:</strong></p>
+            <ul>
+                <li>display: grid; grid-template-columns, grid-template-rows</li>
+                <li>gap (grid-gap), grid-column, grid-row</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Positioning:</strong></p>
+            <ul>
+                <li>position: static, relative, absolute, fixed, sticky</li>
+                <li>top, right, bottom, left, z-index</li>
+            </ul>
+        </div>
+
+        <div class="practice-section">
+            <h3>Practice Problems (Practical 7-9)</h3>
+
+            <div class="practice-item">
+                <strong>Practical 7:</strong> Create external CSS file with:
+                <br>i) Paragraph with green color and italic for first line
+                <br>ii) Heading selection background color grey
+                <br>iii) Ordered list with capital roman letters, green color, 30px font
+            </div>
+
+            <div class="practice-item">
+                <strong>Practical 8:</strong> Create flexbox container with 4 child boxes:
+                <br>- flex-direction: row
+                <br>- justify-content: space-between
+                <br>- align-items: center
+                <br>- Third box with order: -1
+            </div>
+
+            <div class="practice-item">
+                <strong>Practical 9:</strong> Create CSS file with styles for:
+                <br>i) Headings: 120% font size, normal style
+                <br>ii) Class c1: bold paragraphs with 3cm margin
+                <br>iii) Background: orange color + nature.jpg (horizontal repeat)
+            </div>
+
+            <div class="practice-item">
+                <strong>Q1:</strong> Explain CSS Specificity. Which selector has highest priority?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q2:</strong> Differentiate between margin and padding.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q3:</strong> What is box-sizing: border-box? Why is it useful?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q4:</strong> Explain Flexbox properties: justify-content vs align-items.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q5:</strong> How would you create a responsive grid layout with CSS Grid?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q6:</strong> Differentiate between position: relative and position: absolute.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q7:</strong> How do you include Google Fonts in your CSS?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q8:</strong> Create a layout with header (fixed top), sidebar (fixed left), and main content
+                using CSS positioning.
+            </div>
+        </div>
+    </div>
+    <div
+        style="text-align: center; padding: 30px 20px; background: rgba(255,255,255,0.05); border-top: 2px solid #43e97b; margin-top: 40px; border-radius: 0 0 10px 10px;">
+        <div
+            style="display: inline-block; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; padding: 8px 15px; border-radius: 20px; margin: 10px 0; font-weight: bold; font-size: 0.9em;">
+            ✨ Created by DRThummar ✨</div>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">💻 Comprehensive FSD Practical Exam Preparation
+            Material</p>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">📅 Updated: 2026 | 📚 Course Code: 117013392</p>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">🔗 <a
+                href="https://github.com/DhruvilThummar/FSD-Ipe.git" target="_blank"
+                style="color: #43e97b; text-decoration: none;">GitHub Repository</a></p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 10: Modern JavaScript - Async, Fetch & Forms</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.3em;
+            text-decoration: none;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        nav .github-link {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            padding-top: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+        }
+
+        h1 {
+            color: #f5576c;
+            border-bottom: 3px solid #f5576c;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .topic {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #f5576c;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .topic h3 {
+            color: #f093fb;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        li {
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .practice-section {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .practice-section h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .practice-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #ffc107;
+        }
+
+        .practice-item strong {
+            color: #f5576c;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="Index.html" class="logo">📚 FSD Practicals</a>
+            <div class="nav-links">
+                <a href="Index.html">Home</a>
+                <a href="README.html">Guide</a>
+                <a href="Topic_Coverage_Summary.html">Topics</a>
+                <a href="Quick_Reference.html">Cheat Sheet</a>
+                <a href="Unit1_Intro_to_Web.html">Units ▼</a>
+                <a href="https://github.com/DhruvilThummar/FSD-Ipe.git" class="github-link" target="_blank">🔗
+                    GitHub</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Unit 10: Modern JavaScript - Async, Fetch & Forms</h1>
+
+        <div class="topic">
+            <h3>10.1 Form Validation & Storage</h3>
+            <p><strong>Form Validation:</strong></p>
+            <ul>
+                <li>HTML5 validation attributes: required, pattern, minlength, maxlength</li>
+                <li>Regular Expressions (Regex): /^[a-z]+$/, /[0-9]/, etc.</li>
+                <li>JavaScript validation: Check form before submission</li>
+                <li>Validate email, password strength, field lengths</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Form Processing:</strong></p>
+            <ul>
+                <li>Get form values: document.getElementById('myInput').value</li>
+                <li>Submit event handler: form.addEventListener('submit', function(e) { })</li>
+                <li>Prevent default form submission: e.preventDefault()</li>
+                <li>Send data via AJAX or Fetch API</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Web Storage:</strong></p>
+            <ul>
+                <li><strong>localStorage:</strong> Persistent storage (survives page refresh)</li>
+                <li><strong>sessionStorage:</strong> Temporary (cleared when tab closes)</li>
+                <li>Methods: setItem(key, value), getItem(key), removeItem(key), clear()</li>
+                <li>Store strings; use JSON.stringify() for objects</li>
+            </ul>
+        </div>
+
+        <div class="topic">
+            <h3>10.2 Asynchronous JavaScript & Promises</h3>
+            <p><strong>Promises:</strong> Handle async operations</p>
+            <ul>
+                <li>Promise states: pending, fulfilled, rejected</li>
+                <li>.then(success, error) - Handle promise</li>
+                <li>.catch(error) - Catch rejection</li>
+                <li>.finally() - Execute regardless of result</li>
+                <li>Promise chaining: .then().then().catch()</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Async/Await (ES7):</strong> Modern way to handle promises</p>
+            <ul>
+                <li>async function - Declares async function</li>
+                <li>await - Pause execution until promise resolves</li>
+                <li>try...catch for error handling</li>
+                <li>Cleaner syntax than .then().catch()</li>
+            </ul>
+        </div>
+
+        <div class="topic">
+            <h3>10.3 Fetch API</h3>
+            <p><strong>Fetch API:</strong> Make HTTP requests</p>
+            <ul>
+                <li>fetch(url) - Returns promise</li>
+                <li>.then(response => response.json()) - Parse JSON</li>
+                <li>Get requests: fetch(url)</li>
+                <li>Post requests: fetch(url, {method: 'POST', body: JSON.stringify(data)})</li>
+                <li>Error handling with .catch()</li>
+                <li>Common APIs: JSONPlaceholder, OpenWeather, REST APIs</li>
+            </ul>
+        </div>
+
+        <div class="practice-section">
+            <h3>Practice Problems (Practical 23-24 & Additional)</h3>
+
+            <div class="practice-item">
+                <strong>Practical 23:</strong> Create calculator with two number inputs, operation dropdown (+, -, *,
+                /), and button.
+                <br>On click: Perform calculation using Promise.
+                <br>- Resolve with result if valid
+                <br>- Reject if invalid or division by zero
+                <br>- Use .then() for result, .catch() for errors, .finally() to show "Calculation Finished"
+            </div>
+
+            <div class="practice-item">
+                <strong>Practical 24:</strong> Create login form with username and password validation:
+                <br>1. Password: 6-12 characters
+                <br>2. Username: Cannot start with _, @, or number
+                <br>3. Both fields required
+            </div>
+
+            <div class="practice-item">
+                <strong>Additional Practical:</strong> Create contact form with fields for username, email, message.
+                <br>On submit: Save data to localStorage
+                <br>Retrieve and display stored data below form
+            </div>
+
+            <div class="practice-item">
+                <strong>Q1:</strong> What are Promises? Explain states: pending, fulfilled, rejected.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q2:</strong> Difference between .then().catch() and async/await.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q3:</strong> What is Fetch API? How do you make GET and POST requests?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q4:</strong> Explain localStorage vs sessionStorage vs cookies.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q5:</strong> How do you validate a form before submission?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q6:</strong> Write a regex pattern to validate email addresses.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q7:</strong> How do you handle errors in Promises and async/await?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q8:</strong> Create a function to fetch data from JSONPlaceholder API and display it.
+            </div>
+        </div>
+    </div>
+    <div
+        style="text-align: center; padding: 30px 20px; background: rgba(255,255,255,0.05); border-top: 2px solid #667eea; margin-top: 40px; border-radius: 0 0 10px 10px;">
+        <div
+            style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 8px 15px; border-radius: 20px; margin: 10px 0; font-weight: bold; font-size: 0.9em;">
+            ✨ Created by DRThummar ✨</div>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">💻 Comprehensive FSD Practical Exam Preparation
+            Material</p>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">📅 Updated: 2026 | 📚 Course Code: 117013392</p>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">🔗 <a
+                href="https://github.com/DhruvilThummar/FSD-Ipe.git" target="_blank"
+                style="color: #667eea; text-decoration: none;">GitHub Repository</a></p>
+    </div>
+</body>
+
+</html>

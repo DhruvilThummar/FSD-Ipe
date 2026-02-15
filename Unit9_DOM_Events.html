@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 9: JavaScript DOM Manipulation & Events</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7675 100%);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.3em;
+            text-decoration: none;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        nav .github-link {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff758c 0%, #ff7675 100%);
+            min-height: 100vh;
+            padding: 20px;
+            padding-top: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+        }
+
+        h1 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .topic {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .topic h3 {
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        li {
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .practice-section {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .practice-section h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .practice-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #ffc107;
+        }
+
+        .practice-item strong {
+            color: #667eea;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="Index.html" class="logo">📚 FSD Practicals</a>
+            <div class="nav-links">
+                <a href="Index.html">Home</a>
+                <a href="README.html">Guide</a>
+                <a href="Topic_Coverage_Summary.html">Topics</a>
+                <a href="Quick_Reference.html">Cheat Sheet</a>
+                <a href="Unit1_Intro_to_Web.html">Units ▼</a>
+                <a href="https://github.com/DhruvilThummar/FSD-Ipe.git" class="github-link" target="_blank">🔗
+                    GitHub</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Unit 9: JavaScript DOM Manipulation & Events</h1>
+
+        <div class="topic">
+            <h3>9.1 DOM Manipulation</h3>
+            <p><strong>DOM (Document Object Model):</strong> Represents HTML as objects that JavaScript can interact
+                with.</p>
+            <p style="margin-top: 15px;"><strong>Selecting Elements:</strong></p>
+            <ul>
+                <li>getElementById(id) - Select by ID</li>
+                <li>getElementsByClassName(class) - Select by class (returns HTMLCollection)</li>
+                <li>querySelector(selector) - Select first matching element</li>
+                <li>querySelectorAll(selector) - Select all matching elements</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Modifying Content:</strong></p>
+            <ul>
+                <li>innerHTML - Get/set HTML content (use carefully)</li>
+                <li>innerText - Get/set plain text content</li>
+                <li>textContent - Get/set text (includes hidden elements)</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Attributes:</strong></p>
+            <ul>
+                <li>setAttribute(name, value) - Set attribute</li>
+                <li>getAttribute(name) - Get attribute value</li>
+                <li>removeAttribute(name) - Remove attribute</li>
+                <li>Direct property access: element.id, element.class</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Styling:</strong></p>
+            <ul>
+                <li>element.style.color = "red" - Inline styles</li>
+                <li>element.classList.add/remove/toggle() - Manage CSS classes</li>
+                <li>element.className - Get/set class attribute</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Creating & Removing Elements:</strong></p>
+            <ul>
+                <li>createElement(tag) - Create new element</li>
+                <li>appendChild(child) - Add child element</li>
+                <li>removeChild(child) - Remove child element</li>
+                <li>insertBefore(new, reference) - Insert before element</li>
+            </ul>
+        </div>
+
+        <div class="topic">
+            <h3>9.2 Event Handling</h3>
+            <p><strong>Common Events:</strong></p>
+            <ul>
+                <li><strong>Mouse:</strong> click, dblclick, mouseover, mouseout, mousemove, mouseenter</li>
+                <li><strong>Keyboard:</strong> keydown, keyup, keypress</li>
+                <li><strong>Form:</strong> input, submit, change, focus, blur</li>
+                <li><strong>Window:</strong> load, unload, scroll, resize</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Handling Events:</strong></p>
+            <ul>
+                <li>HTML attribute: &lt;button onclick="myFunc()"&gt;</li>
+                <li>Property: element.onclick = function() { }</li>
+                <li><strong>addEventListener:</strong> element.addEventListener('click', function() { })</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Event Object:</strong></p>
+            <ul>
+                <li>event.target - Element that triggered event</li>
+                <li>event.type - Type of event</li>
+                <li>event.key - Key pressed (keyboard events)</li>
+                <li>event.preventDefault() - Prevent default action</li>
+                <li>event.stopPropagation() - Stop event bubbling</li>
+            </ul>
+        </div>
+
+        <div class="practice-section">
+            <h3>Practice Problems (Practical 20-22)</h3>
+
+            <div class="practice-item">
+                <strong>Practical 20:</strong> Handle keyboard events:
+                <br>i) Display key code for pressed key
+                <br>ii) If key is vowel (a,e,i,o,u), announce it
+                <br>iii) On key release, background changes to blue
+            </div>
+
+            <div class="practice-item">
+                <strong>Practical 21:</strong> Handle mouse events:
+                <br>i) Click heading: change text to "Hello World" (italic, 50px)
+                <br>ii) Click "red" button: heading turns red
+                <br>iii) Click "blue" button: heading turns blue
+            </div>
+
+            <div class="practice-item">
+                <strong>Practical 22:</strong> Create HTML with h1, p, button, ul. On button click:
+                <br>- Change heading text
+                <br>- Change all paragraphs to red color
+                <br>- Change first paragraph background color
+                <br>- Underline all list items
+            </div>
+
+            <div class="practice-item">
+                <strong>Q1:</strong> Difference between getElementById and querySelector.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q2:</strong> What is innerHTML? Why should it be used carefully?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q3:</strong> Explain event delegation in JavaScript.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q4:</strong> What does event.preventDefault() do?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q5:</strong> How do you dynamically create and add elements to the DOM?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q6:</strong> Difference between mouseover and mouseenter events.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q7:</strong> How do you add/remove/toggle CSS classes using JavaScript?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q8:</strong> Explain event bubbling and event capturing.
+            </div>
+        </div>
+    </div>
+    <div
+        style="text-align: center; padding: 30px 20px; background: rgba(255,255,255,0.05); border-top: 2px solid #ff758c; margin-top: 40px; border-radius: 0 0 10px 10px;">
+        <div
+            style="display: inline-block; background: linear-gradient(135deg, #ff758c 0%, #ff7675 100%); color: white; padding: 8px 15px; border-radius: 20px; margin: 10px 0; font-weight: bold; font-size: 0.9em;">
+            ✨ Created by DRThummar ✨</div>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">💻 Comprehensive FSD Practical Exam Preparation
+            Material</p>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">📅 Updated: 2026 | 📚 Course Code: 117013392</p>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">🔗 <a
+                href="https://github.com/DhruvilThummar/FSD-Ipe.git" target="_blank"
+                style="color: #ff758c; text-decoration: none;">GitHub Repository</a></p>
+    </div>
+</body>
+
+</html>

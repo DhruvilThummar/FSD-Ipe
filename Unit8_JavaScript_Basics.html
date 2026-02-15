@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 8: Core JavaScript Concepts & Functions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.3em;
+            text-decoration: none;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        nav .github-link {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            min-height: 100vh;
+            padding: 20px;
+            padding-top: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+        }
+
+        h1 {
+            color: #5a7fa0;
+            border-bottom: 3px solid #5a7fa0;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .topic {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #5a7fa0;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .topic h3 {
+            color: #a8b3d3;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        li {
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .practice-section {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .practice-section h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .practice-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #ffc107;
+        }
+
+        .practice-item strong {
+            color: #5a7fa0;
+        }
+
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="Index.html" class="logo">📚 FSD Practicals</a>
+            <div class="nav-links">
+                <a href="Index.html">Home</a>
+                <a href="README.html">Guide</a>
+                <a href="Topic_Coverage_Summary.html">Topics</a>
+                <a href="Quick_Reference.html">Cheat Sheet</a>
+                <a href="Unit1_Intro_to_Web.html">Units ▼</a>
+                <a href="https://github.com/DhruvilThummar/FSD-Ipe.git" class="github-link" target="_blank">🔗
+                    GitHub</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Unit 8: Core JavaScript Concepts & Functions</h1>
+
+        <div class="topic">
+            <h3>8.1 JavaScript Basics & Data Types</h3>
+            <p><strong>JavaScript & ES6:</strong></p>
+            <ul>
+                <li>ECMAScript (ES6) - Modern JavaScript standard</li>
+                <li>JavaScript runs in browsers and Node.js</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Variables (var, let, const):</strong></p>
+            <ul>
+                <li><strong>var:</strong> Function-scoped, can be re-declared</li>
+                <li><strong>let:</strong> Block-scoped, cannot be re-declared</li>
+                <li><strong>const:</strong> Block-scoped, cannot be re-assigned</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Data Types:</strong></p>
+            <ul>
+                <li>Number, String, Boolean, Null, Undefined, Symbol, Object</li>
+                <li>Arrays: [1, 2, 3] or new Array()</li>
+                <li>Objects: {name: "John", age: 25}</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Template Literals (ES6):</strong></p>
+            <ul>
+                <li>Use backticks: `Hello ${name}`</li>
+                <li>Allows multi-line strings and interpolation</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Array Methods:</strong></p>
+            <ul>
+                <li>push() - Add element at end</li>
+                <li>pop() - Remove last element</li>
+                <li>map() - Transform each element</li>
+                <li>filter() - Create array of filtered elements</li>
+                <li>forEach() - Loop through array</li>
+                <li>includes() - Check if element exists</li>
+                <li>find() - Find first matching element</li>
+            </ul>
+        </div>
+
+        <div class="topic">
+            <h3>8.2 Loops, Conditions & Functions</h3>
+            <p><strong>Loops:</strong></p>
+            <ul>
+                <li>for, while, do...while</li>
+                <li>for...of - Iterate over values</li>
+                <li>for...in - Iterate over keys/indexes</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Conditions:</strong></p>
+            <ul>
+                <li>if...else, else if</li>
+                <li>switch...case...default</li>
+                <li>Ternary operator: condition ? true : false</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Functions:</strong></p>
+            <ul>
+                <li><strong>Declaration:</strong> function myFunc() { }</li>
+                <li><strong>Expression:</strong> const myFunc = function() { }</li>
+                <li><strong>Arrow Function (ES6):</strong> const myFunc = () => { }</li>
+                <li>Parameters and return values</li>
+                <li>Default Parameters: function(a = 5, b = 10) { }</li>
+                <li>Rest Parameter: ...args collects multiple arguments into array</li>
+                <li>Spread Operator: ...array spreads array elements</li>
+            </ul>
+        </div>
+
+        <div class="topic">
+            <h3>8.3 Popup Boxes</h3>
+            <p><strong>JavaScript Popup Methods:</strong></p>
+            <ul>
+                <li>alert() - Show message and OK button</li>
+                <li>confirm() - Show message with OK/Cancel (returns boolean)</li>
+                <li>prompt() - Ask user for input (returns string or null)</li>
+            </ul>
+        </div>
+
+        <div class="practice-section">
+            <h3>Practice Problems (Practical 19)</h3>
+
+            <div class="practice-item">
+                <strong>Practical 19:</strong> Create HTML page with &lt;div&gt; and button. Write ES6 function with two
+                default parameters a and b. Function takes arguments c and d. On button click, calculate: Result = (a×b)
+                + c − d. Display result inside &lt;div&gt;.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q1:</strong> Differentiate between var, let, and const.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q2:</strong> What are template literals? Give an example.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q3:</strong> Explain arrow functions and how they differ from regular functions.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q4:</strong> What is the difference between forEach() and map()?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q5:</strong> Explain the spread operator (...) with examples.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q6:</strong> How do you use default parameters in functions?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q7:</strong> Create a function that uses rest parameters to sum multiple numbers.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q8:</strong> Explain the difference between filter() and find() array methods.
+            </div>
+        </div>
+    </div>
+    <div
+        style="text-align: center; padding: 30px 20px; background: rgba(255,255,255,0.05); border-top: 2px solid #ffecd2; margin-top: 40px; border-radius: 0 0 10px 10px;">
+        <div
+            style="display: inline-block; background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); color: white; padding: 8px 15px; border-radius: 20px; margin: 10px 0; font-weight: bold; font-size: 0.9em;">
+            ✨ Created by DRThummar ✨</div>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">💻 Comprehensive FSD Practical Exam Preparation
+            Material</p>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">📅 Updated: 2026 | 📚 Course Code: 117013392</p>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">🔗 <a
+                href="https://github.com/DhruvilThummar/FSD-Ipe.git" target="_blank"
+                style="color: #ffecd2; text-decoration: none;">GitHub Repository</a></p>
+    </div>
+</body>
+
+</html>

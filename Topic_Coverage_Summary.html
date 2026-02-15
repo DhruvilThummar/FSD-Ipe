@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FSD - Topic Coverage & Summary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.3em;
+            text-decoration: none;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        nav .github-link {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            padding-top: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background: #f9f9f9;
+        }
+
+        table th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table tr:hover {
+            background: #f0f0f0;
+        }
+
+        .unit-summary {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .unit-summary h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .topics-list {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        .checklist {
+            margin-left: 20px;
+        }
+
+        .checklist li {
+            margin-bottom: 8px;
+        }
+
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .importance {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .high {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .low {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .code-example {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .tips-box {
+            background: #e8f4f8;
+            border-left: 4px solid #0099cc;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .tips-box strong {
+            color: #0099cc;
+        }
+
+        .alert {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .alert strong {
+            color: #856404;
+        }
+
+        .progress {
+            width: 100%;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: width 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="Index.html" class="logo">📚 FSD Practicals</a>
+            <div class="nav-links">
+                <a href="Index.html">Home</a>
+                <a href="README.html">Guide</a>
+                <a href="Topic_Coverage_Summary.html">Topics</a>
+                <a href="Quick_Reference.html">Cheat Sheet</a>
+                <a href="Unit1_Intro_to_Web.html">Units ▼</a>
+                <a href="https://github.com/DhruvilThummar/FSD-Ipe.git" class="github-link" target="_blank">🔗
+                    GitHub</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Complete Topic Coverage for FSD Practical Exam</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Unit</th>
+                    <th>Topic</th>
+                    <th>Weightage</th>
+                    <th>Hours</th>
+                    <th>Key Concepts</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Introduction to Web & Web Design</td>
+                    <td>5%</td>
+                    <td>1</td>
+                    <td>WWW, HTTP, Client-Server, Web Design Principles</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>HTML Structure & Core Tags</td>
+                    <td>10%</td>
+                    <td>3</td>
+                    <td>Semantic Tags, Meta, Media, Lists, Tables</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Forms, Graphics & Interactive Elements</td>
+                    <td>10%</td>
+                    <td>3</td>
+                    <td>Form Controls, SVG, Image Maps</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Introduction to CSS</td>
+                    <td>10%</td>
+                    <td>3</td>
+                    <td>Selectors, Box Model, Flexbox, Grid, Positioning</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>CSS Effects, Animations & Responsive Design</td>
+                    <td>10%</td>
+                    <td>4</td>
+                    <td>Transforms, Animations, Transitions, Media Queries</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Introduction to Bootstrap & Utility Classes</td>
+                    <td>10%</td>
+                    <td>3</td>
+                    <td>Grid System, Utilities, Components, Cards, Tables</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Bootstrap Components: Navigation & Forms</td>
+                    <td>15%</td>
+                    <td>4</td>
+                    <td>Navbar, Forms, Pagination, Carousel, Modal</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Core JavaScript Concepts & Functions</td>
+                    <td>5%</td>
+                    <td>3</td>
+                    <td>Variables, Data Types, Functions, Arrays, Loops</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>JavaScript DOM Manipulation & Events</td>
+                    <td>15%</td>
+                    <td>3</td>
+                    <td>DOM Selection, Style Changes, Event Listeners</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Modern JavaScript: Async, Fetch, Forms</td>
+                    <td>10%</td>
+                    <td>3</td>
+                    <td>Promises, Async/Await, Fetch API, Form Validation</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>📌 Essential Topics Checklist</h2>
+
+        <div class="unit-summary">
+            <h3>Unit 1: Introduction to Web & Web Design <span class="importance low">5%</span></h3>
+            <ul class="checklist">
+                <li><input type="checkbox"> WWW (World Wide Web) basics</li>
+                <li><input type="checkbox"> HTTP protocol and request-response cycle</li>
+                <li><input type="checkbox"> HTTP status codes (200, 404, 500, 301, etc.)</li>
+                <li><input type="checkbox"> URL and Client-Server architecture</li>
+                <li><input type="checkbox"> Website planning and design principles</li>
+                <li><input type="checkbox"> Browser compatibility and responsive design</li>
+                <li><input type="checkbox"> Navigation design and user experience</li>
+            </ul>
+        </div>
+
+        <div class="unit-summary">
+            <h3>Unit 2: HTML Structure & Core Tags <span class="importance medium">10%</span></h3>
+            <ul class="checklist">
+                <li><input type="checkbox"> Basic HTML structure (DOCTYPE, html, head, body)</li>
+                <li><input type="checkbox"> Meta tags (charset, viewport, description, keywords)</li>
+                <li><input type="checkbox"> Semantic HTML5 tags (header, footer, nav, section, article, aside)</li>
+                <li><input type="checkbox"> Text formatting tags (strong, em, mark, del, ins, sub, sup)</li>
+                <li><input type="checkbox"> Heading tags (h1-h6) and paragraph tags</li>
+                <li><input type="checkbox"> Image tags with attributes</li>
+                <li><input type="checkbox"> Hyperlinks and anchor tags</li>
+                <li><input type="checkbox"> Lists (ul, ol, li with type attribute)</li>
+                <li><input type="checkbox"> Tables (table, tr, td, th, colspan, rowspan)</li>
+                <li><input type="checkbox"> Semantic vs non-semantic tags</li>
+            </ul>
+        </div>
+
+        <div class="unit-summary">
+            <h3>Unit 3: Forms, Graphics & Interactive Elements <span class="importance medium">10%</span></h3>
+            <ul class="checklist">
+                <li><input type="checkbox"> Form structure and form elements</li>
+                <li><input type="checkbox"> Input types (text, password, email, number, checkbox, radio, date, type,
+                    file, color, range)</li>
+                <li><input type="checkbox"> Form attributes (action, method, name, id, value, placeholder, required)
+                </li>
+                <li><input type="checkbox"> Fieldset and legend for grouping</li>
+                <li><input type="checkbox"> Select, option, optgroup dropdown menus</li>
+                <li><input type="checkbox"> Textarea for multi-line input</li>
+                <li><input type="checkbox"> SVG basics (rect, circle, line, polygon, path)</li>
+                <li><input type="checkbox"> SVG drawing and styling</li>
+                <li><input type="checkbox"> Image maps (map and area tags)</li>
+                <li><input type="checkbox"> Datalist for predefined input options</li>
+            </ul>
+        </div>
+
+        <div class="unit-summary">
+            <h3>Unit 4: Introduction to CSS <span class="importance medium">10%</span></h3>
+            <ul class="checklist">
+                <li><input type="checkbox"> CSS types (inline, internal, external)</li>
+                <li><input type="checkbox"> CSS selectors (element, ID, class, attribute, universal, descendant, child,
+                    grouping)</li>
+                <li><input type="checkbox"> Pseudo-classes and pseudo-elements</li>
+                <li><input type="checkbox"> CSS Specificity (ID > Class > Element)</li>
+                <li><input type="checkbox"> Background properties (color, image, repeat, position, size, attachment)
+                </li>
+                <li><input type="checkbox"> Text properties (color, align, indent, transform, decoration, shadow)</li>
+                <li><input type="checkbox"> Font properties (family, size, style, weight, variant, Google Fonts)</li>
+                <li><input type="checkbox"> Box model (margin, padding, border, width, height, box-sizing)</li>
+                <li><input type="checkbox"> Display (inline, block, inline-block, flex, grid, none)</li>
+                <li><input type="checkbox"> Flexbox (direction, justify-content, align-items, flex-wrap, gap, order)
+                </li>
+                <li><input type="checkbox"> CSS Grid (grid-template-columns, grid-template-rows, gap, grid-column,
+                    grid-row)</li>
+                <li><input type="checkbox"> Positioning (static, relative, absolute, fixed, sticky, z-index)</li>
+            </ul>
+        </div>
+
+        <div class="unit-summary">
+            <h3>Unit 5: CSS Effects, Animations & Responsive <span class="importance medium">10%</span></h3>
+            <ul class="checklist">
+                <li><input type="checkbox"> CSS columns (column-count, column-gap, column-rule-style)</li>
+                <li><input type="checkbox"> Responsive images (rounded, thumbnail, transparent)</li>
+                <li><input type="checkbox"> Gradients (linear, radial, conic)</li>
+                <li><input type="checkbox"> Transformations (rotate, scale, translate, skew, 3D transforms)</li>
+                <li><input type="checkbox"> Transitions (property, duration, timing-function, delay)</li>
+                <li><input type="checkbox"> Animations (@keyframes, animation-name, animation-duration,
+                    animation-timing-function)</li>
+                <li><input type="checkbox"> Animation iteration count and direction</li>
+                <li><input type="checkbox"> CSS variables (:root, var() function)</li>
+                <li><input type="checkbox"> Media queries (syntax, media types, breakpoints)</li>
+                <li><input type="checkbox"> Responsive design principles (mobile-first approach)</li>
+            </ul>
+        </div>
+
+        <div class="unit-summary">
+            <h3>Unit 6: Introduction to Bootstrap & Utility Classes <span class="importance medium">10%</span></h3>
+            <ul class="checklist">
+                <li><input type="checkbox"> Bootstrap setup (CDN and file inclusion)</li>
+                <li><input type="checkbox"> Container types (fixed and fluid)</li>
+                <li><input type="checkbox"> Grid system (12-column, row, col classes)</li>
+                <li><input type="checkbox"> Responsive prefixes (col-sm, col-md, col-lg, col-xl, col-xxl)</li>
+                <li><input type="checkbox"> Utility classes (spacing, display, colors, sizing, borders)</li>
+                <li><input type="checkbox"> Bootstrap components (buttons, alerts, badges, spinners, images)</li>
+                <li><input type="checkbox"> Bootstrap tables and icons</li>
+                <li><input type="checkbox"> Customizing Bootstrap</li>
+            </ul>
+        </div>
+
+        <div class="unit-summary">
+            <h3>Unit 7: Bootstrap Components - Navigation & Forms <span class="importance high">15%</span></h3>
+            <ul class="checklist">
+                <li><input type="checkbox"> Navbar (navbar-brand, navbar-nav, navbar-expand-lg)</li>
+                <li><input type="checkbox"> Dropdown menus in navbar</li>
+                <li><input type="checkbox"> Collapsible navbar for mobile</li>
+                <li><input type="checkbox"> Offcanvas sidebar (offcanvas-start, offcanvas-end)</li>
+                <li><input type="checkbox"> Carousel/slideshow components</li>
+                <li><input type="checkbox"> Modal dialogs</li>
+                <li><input type="checkbox"> Scrollspy functionality</li>
+                <li><input type="checkbox"> Bootstrap forms (form-control, form-label)</li>
+                <li><input type="checkbox"> Floating labels in forms</li>
+                <li><input type="checkbox"> Form validation (is-valid, is-invalid)</li>
+                <li><input type="checkbox"> Pagination component</li>
+                <li><input type="checkbox"> Checkboxes and radio buttons in Bootstrap</li>
+            </ul>
+        </div>
+
+        <div class="unit-summary">
+            <h3>Unit 8: Core JavaScript Concepts & Functions <span class="importance low">5%</span></h3>
+            <ul class="checklist">
+                <li><input type="checkbox"> Variables (var, let, const) and scoping</li>
+                <li><input type="checkbox"> Data types (number, string, boolean, null, undefined, object, symbol)</li>
+                <li><input type="checkbox"> Arrays and array methods (push, pop, map, filter, forEach, includes, find)
+                </li>
+                <li><input type="checkbox"> Objects and object properties</li>
+                <li><input type="checkbox"> Template literals and string interpolation</li>
+                <li><input type="checkbox"> Loops (for, while, do-while, for-of, for-in)</li>
+                <li><input type="checkbox"> Conditional statements (if-else, switch-case)</li>
+                <li><input type="checkbox"> Functions (declaration, expression, arrow functions)</li>
+                <li><input type="checkbox"> Function parameters and return values</li>
+                <li><input type="checkbox"> Default parameters</li>
+                <li><input type="checkbox"> Rest parameter and spread operator</li>
+                <li><input type="checkbox"> Popup boxes (alert, confirm, prompt)</li>
+            </ul>
+        </div>
+
+        <div class="unit-summary">
+            <h3>Unit 9: JavaScript DOM Manipulation & Events <span class="importance high">15%</span></h3>
+            <ul class="checklist">
+                <li><input type="checkbox"> DOM structure and document object</li>
+                <li><input type="checkbox"> Element selection (getElementById, getElementsByClassName, querySelector,
+                    querySelectorAll)</li>
+                <li><input type="checkbox"> innerHTML, innerText, textContent properties</li>
+                <li><input type="checkbox"> Attribute methods (setAttribute, getAttribute, removeAttribute)</li>
+                <li><input type="checkbox"> Style manipulation (element.style properties)</li>
+                <li><input type="checkbox"> Class manipulation (classList.add, remove, toggle)</li>
+                <li><input type="checkbox"> Creating and removing elements</li>
+                <li><input type="checkbox"> Mouse events (click, double-click, mouseover, mouseout, mouseenter,
+                    mousemove)</li>
+                <li><input type="checkbox"> Keyboard events (keydown, keyup, keypress)</li>
+                <li><input type="checkbox"> Form events (input, submit, change, focus, blur)</li>
+                <li><input type="checkbox"> Window events (load, scroll, resize)</li>
+                <li><input type="checkbox"> addEventListener method</li>
+                <li><input type="checkbox"> Event object properties (target, type, key)</li>
+                <li><input type="checkbox"> preventDefault() and stopPropagation()</li>
+            </ul>
+        </div>
+
+        <div class="unit-summary">
+            <h3>Unit 10: Modern JavaScript - Async, Fetch & Forms <span class="importance medium">10%</span></h3>
+            <ul class="checklist">
+                <li><input type="checkbox"> Form validation (HTML5 and JavaScript)</li>
+                <li><input type="checkbox"> Regular expressions for pattern matching</li>
+                <li><input type="checkbox"> Form processing and data collection</li>
+                <li><input type="checkbox"> localStorage and sessionStorage</li>
+                <li><input type="checkbox"> Promises (.then(), .catch(), .finally())</li>
+                <li><input type="checkbox"> Promise states (pending, fulfilled, rejected)</li>
+                <li><input type="checkbox"> Async functions and await keyword</li>
+                <li><input type="checkbox"> Try-catch for error handling</li>
+                <li><input type="checkbox"> Fetch API for HTTP requests</li>
+                <li><input type="checkbox"> GET and POST requests</li>
+                <li><input type="checkbox"> JSON parsing (JSON.stringify, JSON.parse)</li>
+                <li><input type="checkbox"> Error handling in async operations</li>
+            </ul>
+        </div>
+
+        <h2>⚡ Quick Reference Code Snippets</h2>
+
+        <h3>JavaScript Selectors</h3>
+        <div class="code-example">
+            // Modern selectors (recommended)
+            const el1 = document.querySelector('#myId');
+            const el2 = document.querySelectorAll('.myClass');
+            const el3 = document.querySelectorAll('[type="text"]');
+
+            // Legacy selectors (still used)
+            const el4 = document.getElementById('myId');
+            const el5 = document.getElementsByClassName('myClass');
+        </div>
+
+        <h3>Event Handling</h3>
+        <div class="code-example">
+            // addEventListener (preferred)
+            element.addEventListener('click', function(event) {
+            console.log(event.target);
+            console.log(event.type);
+            });
+
+            // Arrow function
+            button.addEventListener('click', () => {
+            element.style.color = 'red';
+            });
+        </div>
+
+        <h3>Flexbox Example</h3>
+        <div class="code-example">
+            .flex-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around; /* horizontal */
+            align-items: center; /* vertical */
+            flex-wrap: wrap;
+            gap: 20px;
+            }
+        </div>
+
+        <h3>Media Query</h3>
+        <div class="code-example">
+            /* Mobile-first approach */
+            .container { width: 100%; }
+
+            @media (min-width: 768px) {
+            .container { width: 750px; }
+            }
+
+            @media (min-width: 992px) {
+            .container { width: 970px; }
+            }
+        </div>
+
+        <h3>Async/Await Example</h3>
+        <div class="code-example">
+            async function getData() {
+            try {
+            const response = await fetch('https://api.example.com/data');
+            const data = await response.json();
+            console.log(data);
+            } catch (error) {
+            console.error('Error:', error);
+            }
+            }
+        </div>
+
+        <h2>📊 Exam Weightage Summary</h2>
+
+        <div>
+            <p><strong>Frontend (HTML + CSS):</strong> 40% (Units 2-7)</p>
+            <div class="progress">
+                <div class="progress-bar" style="width: 40%;">40%</div>
+            </div>
+        </div>
+
+        <div>
+            <p><strong>JavaScript & DOM:</strong> 30% (Units 8-9)</p>
+            <div class="progress">
+                <div class="progress-bar" style="width: 30%;">30%</div>
+            </div>
+        </div>
+
+        <div>
+            <p><strong>Advanced Topics:</strong> 25% (Unit 10 + Bootstrap)</p>
+            <div class="progress">
+                <div class="progress-bar" style="width: 25%;">25%</div>
+            </div>
+        </div>
+
+        <div>
+            <p><strong>Basics & Theory:</strong> 5% (Unit 1)</p>
+            <div class="progress">
+                <div class="progress-bar" style="width: 5%;">5%</div>
+            </div>
+        </div>
+
+        <div class="tips-box">
+            <strong>💡 Pro Tips for Exam:</strong>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>Bootstrap questions are commonly asked - master grid system and components</li>
+                <li>JavaScript DOM manipulation is high weightage - practice event handlers</li>
+                <li>Always prioritize responsive design in CSS questions</li>
+                <li>Form validation combining HTML5 + JavaScript is frequently asked</li>
+                <li>Practice creating projects that combine multiple units</li>
+                <li>Use developer tools to debug and test your code</li>
+            </ul>
+        </div>
+
+        <div class="alert">
+            <strong>📝 Important Reminders:</strong>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>Always link external CSS files correctly</li>
+                <li>Include viewport meta tag for responsive design</li>
+                <li>Use semantic HTML for better accessibility</li>
+                <li>Minimize inline styles - use CSS classes instead</li>
+                <li>Test your code on mobile devices and different browsers</li>
+            </ul>
+        </div>
+    </div>
+    <div
+        style="text-align: center; padding: 30px 20px; background: rgba(255,255,255,0.05); border-top: 2px solid #667eea; margin-top: 40px; border-radius: 0 0 10px 10px;">
+        <div
+            style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 8px 15px; border-radius: 20px; margin: 10px 0; font-weight: bold; font-size: 0.9em;">
+            ✨ Created by DRThummar ✨</div>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">💻 Comprehensive FSD Practical Exam Preparation
+            Material</p>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">📅 Updated: 2026 | 📚 Course Code: 117013392</p>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">🔗 <a
+                href="https://github.com/DhruvilThummar/FSD-Ipe.git" target="_blank"
+                style="color: #667eea; text-decoration: none;">GitHub Repository</a></p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1: Introduction to Web and Web Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.3em;
+            text-decoration: none;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        nav .github-link {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            padding-top: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+        }
+
+        h1 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #764ba2;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .topic {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .topic h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .topic p {
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        li {
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .practice-section {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .practice-section h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .practice-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #ffc107;
+        }
+
+        .practice-item strong {
+            color: #667eea;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-content">
+            <a href="Index.html" class="logo">📚 FSD Practicals</a>
+            <div class="nav-links">
+                <a href="Index.html">Home</a>
+                <a href="README.html">Guide</a>
+                <a href="Topic_Coverage_Summary.html">Topics</a>
+                <a href="Quick_Reference.html">Cheat Sheet</a>
+                <a href="Unit1_Intro_to_Web.html">Units ▼</a>
+                <a href="https://github.com/DhruvilThummar/FSD-Ipe.git" class="github-link" target="_blank">🔗
+                    GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Unit 1: Introduction to Web and Web Design</h1>
+
+        <div class="topic">
+            <h3>1.1 Basics of WWW and HTTP Protocol</h3>
+            <p><strong>Key Concepts:</strong></p>
+            <ul>
+                <li>WWW (World Wide Web) - A system of interconnected documents and resources</li>
+                <li>HTTP (HyperText Transfer Protocol) - Protocol for transferring data over the internet</li>
+                <li>HTTP Features: Stateless, Request-Response model, TCP/IP based</li>
+                <li>HTTP Request Methods: GET, POST, PUT, DELETE, PATCH</li>
+                <li>HTTP Status Codes: 1xx (Informational), 2xx (Success), 3xx (Redirection), 4xx (Client Error), 5xx
+                    (Server Error)</li>
+                <li>URL (Uniform Resource Locator) - Address of web resources</li>
+                <li>Client-Server Architecture: Client sends requests, Server responds</li>
+            </ul>
+        </div>
+
+        <div class="topic">
+            <h3>1.2 Concepts of Effective Web Design</h3>
+            <p><strong>Key Topics:</strong></p>
+            <ul>
+                <li><strong>Website Planning:</strong> Define goals, target audience, content structure</li>
+                <li><strong>Browser Compatibility:</strong> Design should work on different browsers</li>
+                <li><strong>Bandwidth and Cache:</strong> Optimize for faster loading</li>
+                <li><strong>Display Resolution:</strong> Responsive design for all screen sizes</li>
+                <li><strong>Look and Feel:</strong> Color schemes, typography, visual hierarchy</li>
+                <li><strong>Page Layout:</strong> Proper arrangement of content</li>
+                <li><strong>Navigation Design:</strong> User-friendly menu and navigation structure</li>
+            </ul>
+        </div>
+
+        <div class="practice-section">
+            <h3>Practice Questions & Exercises</h3>
+
+            <div class="practice-item">
+                <strong>Q1:</strong> Explain the HTTP request-response cycle. What happens when you type a URL in your
+                browser?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q2:</strong> Differentiate between GET and POST methods in HTTP.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q3:</strong> What do the following HTTP status codes mean? 200, 404, 500, 301
+            </div>
+
+            <div class="practice-item">
+                <strong>Q4:</strong> Explain Client-Server architecture with a real-world example.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q5:</strong> How would you make a website compatible with different browsers? List at least 5
+                strategies.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q6:</strong> Design a navigation structure for an e-commerce website. What elements would you
+                include?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q7:</strong> Explain how bandwidth affects website performance and what steps you can take to
+                optimize it.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q8:</strong> Create a sitemap for a blog website with multiple categories and pages.
+            </div>
+        </div>
+
+        <div
+            style="text-align: center; padding: 30px 20px; background: rgba(255,255,255,0.05); border-top: 2px solid #667eea; margin-top: 40px; border-radius: 0 0 10px 10px;">
+            <div
+                style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 8px 15px; border-radius: 20px; margin: 10px 0; font-weight: bold; font-size: 0.9em;">
+                ✨ Created by DRThummar ✨</div>
+            <p style="color: #333; font-size: 0.9em; margin: 5px 0;">💻 Comprehensive FSD Practical Exam Preparation
+                Material</p>
+            <p style="color: #333; font-size: 0.9em; margin: 5px 0;">📅 Updated: 2026 | 📚 Course Code: 117013392</p>
+            <p style="color: #333; font-size: 0.9em; margin: 5px 0;">🔗 <a
+                    href="https://github.com/DhruvilThummar/FSD-Ipe.git" target="_blank"
+                    style="color: #667eea; text-decoration: none;">GitHub Repository</a> |
+                📖 <a href="https://dhruvilthummar.github.io/FSD-Ipe" target="_blank"
+                    style="color: #667eea; text-decoration: none;">GitHub Pages</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

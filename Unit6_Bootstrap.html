@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 6: Introduction to Bootstrap & Utility Classes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.3em;
+            text-decoration: none;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        nav .github-link {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            min-height: 100vh;
+            padding: 20px;
+            padding-top: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+        }
+
+        h1 {
+            color: #ff6b9d;
+            border-bottom: 3px solid #ff6b9d;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .topic {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #ff6b9d;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .topic h3 {
+            color: #c44b9d;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        li {
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .practice-section {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .practice-section h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .practice-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #ffc107;
+        }
+
+        .practice-item strong {
+            color: #ff6b9d;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="Index.html" class="logo">📚 FSD Practicals</a>
+            <div class="nav-links">
+                <a href="Index.html">Home</a>
+                <a href="README.html">Guide</a>
+                <a href="Topic_Coverage_Summary.html">Topics</a>
+                <a href="Quick_Reference.html">Cheat Sheet</a>
+                <a href="Unit1_Intro_to_Web.html">Units ▼</a>
+                <a href="https://github.com/DhruvilThummar/FSD-Ipe.git" class="github-link" target="_blank">🔗
+                    GitHub</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Unit 6: Introduction to Bootstrap & Utility Classes</h1>
+
+        <div class="topic">
+            <h3>6.1 Bootstrap Setup & Containers</h3>
+            <p><strong>Bootstrap Setup:</strong></p>
+            <ul>
+                <li>Include Bootstrap CDN in &lt;head&gt; section</li>
+                <li>Include JS file before closing &lt;/body&gt;</li>
+                <li>Bootstrap 5 requires no jQuery</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Containers:</strong></p>
+            <ul>
+                <li>.container - Fixed width container</li>
+                <li>.container-fluid - Full width container</li>
+                <li>Responsive breakpoints: xs, sm, md, lg, xl, xxl</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Utility Classes:</strong></p>
+            <ul>
+                <li><strong>Spacing:</strong> m, p, mt, mb, ml, mr, pt, pb, pl, pr (margin, padding)</li>
+                <li><strong>Display:</strong> d-none, d-block, d-flex, d-grid</li>
+                <li><strong>Colors:</strong> text-primary, bg-danger, border-success</li>
+                <li><strong>Sizing:</strong> w-25, h-50, w-100</li>
+                <li><strong>Borders:</strong> border, border-top, rounded, rounded-circle</li>
+                <li><strong>Positioning:</strong> position-absolute, position-fixed</li>
+                <li><strong>Typography:</strong> text-center, text-start, fs-1 to fs-6</li>
+                <li><strong>Shadows:</strong> shadow, shadow-sm, shadow-lg</li>
+                <li><strong>Flex:</strong> flex-direction, justify-content, align-items, gap</li>
+            </ul>
+        </div>
+
+        <div class="topic">
+            <h3>6.2 Grid System & Components</h3>
+            <p><strong>Grid System:</strong></p>
+            <ul>
+                <li>12-column grid system</li>
+                <li>Classes: row, col, col-md-6, col-lg-4</li>
+                <li>Responsive: col-sm-12 col-md-6 col-lg-4</li>
+                <li>Offset columns: offset-md-2</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Bootstrap Components:</strong></p>
+            <ul>
+                <li><strong>Alerts:</strong> .alert, .alert-success, .alert-danger, alert-dismissible</li>
+                <li><strong>Buttons:</strong> .btn, .btn-primary, .btn-lg, .btn-disabled</li>
+                <li><strong>Spinner:</strong> .spinner-border, .spinner-grow (loading indicators)</li>
+                <li><strong>Images:</strong> .img-fluid, .rounded, .img-thumbnail</li>
+                <li><strong>Icons:</strong> Bootstrap Icons library</li>
+                <li><strong>Tables:</strong> .table, .table-striped, .table-hover, .table-dark</li>
+            </ul>
+        </div>
+
+        <div class="topic">
+            <h3>6.3 Advanced Components</h3>
+            <p><strong>Components to Learn:</strong></p>
+            <ul>
+                <li><strong>Dropdown:</strong> .dropdown, .dropdown-menu, data-bs-toggle</li>
+                <li><strong>Cards:</strong> .card, .card-body, .card-title, .card-text</li>
+                <li><strong>Collapse:</strong> .collapse, data-bs-toggle="collapse"</li>
+                <li><strong>Accordion:</strong> .accordion, .accordion-item, accordion-button</li>
+            </ul>
+        </div>
+
+        <div class="practice-section">
+            <h3>Practice Problems (Practical 14-16)</h3>
+
+            <div class="practice-item">
+                <strong>Practical 14:</strong> Design a Bootstrap 5 card with image, title, description, and action
+                buttons.
+            </div>
+
+            <div class="practice-item">
+                <strong>Practical 15:</strong> Create 3 FAQs with questions and answers. Initially show only questions.
+                On click, display answer. Clicking another question hides the previous answer.
+            </div>
+
+            <div class="practice-item">
+                <strong>Practical 16:</strong> Create pagination with Bootstrap 5. Make Link 1 active and Link 4
+                disabled.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q1:</strong> Explain Bootstrap's grid system. What is the 12-column concept?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q2:</strong> How do you make a responsive layout using Bootstrap row and col classes?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q3:</strong> What are utility classes? Give examples of common utility classes.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q4:</strong> How do you use Bootstrap spacing utility classes?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q5:</strong> Differentiate between .container and .container-fluid.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q6:</strong> How do you customize Bootstrap colors and fonts?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q7:</strong> Create a responsive four-column grid that becomes two columns on tablet and one
+                column on mobile.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q8:</strong> Explain Bootstrap breakpoints and how to use them in responsive design.
+            </div>
+        </div>
+    </div>
+    <div
+        style="text-align: center; padding: 30px 20px; background: rgba(255,255,255,0.05); border-top: 2px solid #a8edea; margin-top: 40px; border-radius: 0 0 10px 10px;">
+        <div
+            style="display: inline-block; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: white; padding: 8px 15px; border-radius: 20px; margin: 10px 0; font-weight: bold; font-size: 0.9em;">
+            ✨ Created by DRThummar ✨</div>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">💻 Comprehensive FSD Practical Exam Preparation
+            Material</p>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">📅 Updated: 2026 | 📚 Course Code: 117013392</p>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">🔗 <a
+                href="https://github.com/DhruvilThummar/FSD-Ipe.git" target="_blank"
+                style="color: #a8edea; text-decoration: none;">GitHub Repository</a></p>
+    </div>
+</body>
+
+</html>

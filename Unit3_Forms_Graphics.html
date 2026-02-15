@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 3: Forms, Graphics & Interactive Elements</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 1.3em;
+            text-decoration: none;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        nav .github-link {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            min-height: 100vh;
+            padding: 20px;
+            padding-top: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+        }
+
+        h1 {
+            color: #00f2fe;
+            border-bottom: 3px solid #00f2fe;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .topic {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 4px solid #00f2fe;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .topic h3 {
+            color: #4facfe;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        li {
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .practice-section {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .practice-section h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .practice-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #ffc107;
+        }
+
+        .practice-item strong {
+            color: #00f2fe;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="Index.html" class="logo">📚 FSD Practicals</a>
+            <div class="nav-links">
+                <a href="Index.html">Home</a>
+                <a href="README.html">Guide</a>
+                <a href="Topic_Coverage_Summary.html">Topics</a>
+                <a href="Quick_Reference.html">Cheat Sheet</a>
+                <a href="Unit1_Intro_to_Web.html">Units ▼</a>
+                <a href="https://github.com/DhruvilThummar/FSD-Ipe.git" class="github-link" target="_blank">🔗
+                    GitHub</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Unit 3: Forms, Graphics & Interactive Elements</h1>
+
+        <div class="topic">
+            <h3>3.1 HTML Forms & Input Elements</h3>
+            <p><strong>Form Tags:</strong></p>
+            <ul>
+                <li>&lt;form&gt; - Container for form elements</li>
+                <li>&lt;fieldset&gt; &lt;legend&gt; - Group related form elements</li>
+                <li>&lt;label&gt; - Text for input fields</li>
+                <li>&lt;input&gt; - Various input types (text, password, email, number, checkbox, radio, date, file,
+                    etc.)</li>
+                <li>&lt;textarea&gt; - Multi-line text input</li>
+                <li>&lt;select&gt; &lt;option&gt; &lt;optgroup&gt; - Dropdown lists</li>
+                <li>&lt;button&gt; - Clickable button</li>
+                <li>&lt;datalist&gt; - Pre-defined options for input</li>
+            </ul>
+            <p style="margin-top: 15px;"><strong>Important Input Attributes:</strong></p>
+            <ul>
+                <li>type, name, id, value, placeholder</li>
+                <li>required, readonly, disabled, checked</li>
+                <li>maxlength, minlength, step, min, max</li>
+                <li>autocomplete, autofocus, multiple, accept</li>
+            </ul>
+        </div>
+
+        <div class="topic">
+            <h3>3.2 SVG (Scalable Vector Graphics)</h3>
+            <p><strong>SVG Elements:</strong></p>
+            <ul>
+                <li>&lt;svg&gt; - Container for SVG</li>
+                <li>&lt;rect&gt; - Rectangles</li>
+                <li>&lt;circle&gt; - Circles</li>
+                <li>&lt;line&gt; - Lines</li>
+                <li>&lt;polygon&gt; - Polygons (stars, shapes)</li>
+                <li>&lt;path&gt; - Custom paths</li>
+                <li>&lt;text&gt; - Text inside SVG</li>
+            </ul>
+        </div>
+
+        <div class="topic">
+            <h3>3.3 HTML Image Maps</h3>
+            <p><strong>Image Maps:</strong></p>
+            <ul>
+                <li>&lt;map&gt; - Define clickable regions</li>
+                <li>&lt;area&gt; - Define clickable areas with href</li>
+                <li>Shapes: rect, circle, poly</li>
+                <li>Coordinates for hotspots</li>
+            </ul>
+        </div>
+
+        <div class="practice-section">
+            <h3>Practice Problems (Practical 3-6)</h3>
+
+            <div class="practice-item">
+                <strong>Practical 3:</strong> Design a registration form with fieldset and legend to differentiate
+                between Personal Details (Name, Email, Mobile, Gender, Birth Date, Hobbies) and Educational Details
+                (SSC%, HSC%, Branch dropdown). Include Submit and Reset buttons.
+            </div>
+
+            <div class="practice-item">
+                <strong>Practical 4:</strong> Write HTML code to embed a video in a web document with controls and
+                multiple source formats.
+            </div>
+
+            <div class="practice-item">
+                <strong>Practical 5:</strong> Draw the Indian national flag using SVG with an Ashok Chakra in the center
+                (blue circle).
+            </div>
+
+            <div class="practice-item">
+                <strong>Practical 6:</strong> Create an SVG logo (any design) on a circle filled with orange color.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q1:</strong> Differentiate between &lt;input type="text"&gt; and &lt;textarea&gt;.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q2:</strong> What are the differences between checkbox and radio buttons in HTML forms?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q3:</strong> Explain the difference between &lt;fieldset&gt; and &lt;div&gt; for grouping form
+                elements.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q4:</strong> How would you create a date input field and set a minimum and maximum date?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q5:</strong> What is the purpose of the datalist element? Give an example.
+            </div>
+
+            <div class="practice-item">
+                <strong>Q6:</strong> Explain SVG vs Canvas. Which is better for logos and which for animations?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q7:</strong> How do you create an image map with multiple clickable regions?
+            </div>
+
+            <div class="practice-item">
+                <strong>Q8:</strong> Create an SVG star shape with 5 points and fill it with a color.
+            </div>
+        </div>
+    </div>
+    <div
+        style="text-align: center; padding: 30px 20px; background: rgba(255,255,255,0.05); border-top: 2px solid #4facfe; margin-top: 40px; border-radius: 0 0 10px 10px;">
+        <div
+            style="display: inline-block; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 8px 15px; border-radius: 20px; margin: 10px 0; font-weight: bold; font-size: 0.9em;">
+            ✨ Created by DRThummar ✨</div>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">💻 Comprehensive FSD Practical Exam Preparation
+            Material</p>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">📅 Updated: 2026 | 📚 Course Code: 117013392</p>
+        <p style="color: #333; font-size: 0.9em; margin: 5px 0;">🔗 <a
+                href="https://github.com/DhruvilThummar/FSD-Ipe.git" target="_blank"
+                style="color: #4facfe; text-decoration: none;">GitHub Repository</a></p>
+    </div>
+</body>
+
+</html>
