@@ -307,17 +307,37 @@
 
 <body>
     <!-- Navigation Bar -->
-    <nav>
-        <div class="nav-content">
-            <a href="Index.html" class="logo">FSD Practicals</a>
-            <div class="nav-links">
-                <a href="Index.html">Home</a>
-                <a href="README.html">Guide</a>
-                <a href="Topic_Coverage_Summary.html">Topics</a>
-                <a href="Quick_Reference.html">Cheat Sheet</a>
-                <a href="Unit1_Intro_to_Web.html">Units</a>
-                <a href="https://github.com/DhruvilThummar/FSD-Ipe.git" class="github-link fa fa-github"
-                    target="_blank">GitHub</a>
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container-fluid px-lg-5">
+            <a class="navbar-brand" href="Index.html">FSD Practicals</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="README.html">Guide</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Topic_Coverage_Summary.html">Topics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Quick_Reference.html">Cheat Sheet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Unit1_Intro_to_Web.html">Units</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link github-btn" href="https://github.com/DhruvilThummar/FSD-Ipe.git"
+                            target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -345,7 +365,7 @@
                 <h3>Unit 2: HTML Structure</h3>
                 <p><strong>10% (3 hours)</strong></p>
                 <div class="topics">
-                    HTML Tags â€¢ Semantic Tags â€¢ Meta Tags â€¢ Media & Links â€¢ Lists & Tables
+                    HTML Tags • Semantic Tags • Meta Tags • Media & Links • Lists & Tables
                 </div>
                 <a href="Unit2_HTML_Structure.html" class="link-button">View Topics</a>
             </div>
@@ -354,7 +374,7 @@
                 <h3>Unit 3: Forms & Graphics</h3>
                 <p><strong>10% (3 hours)</strong></p>
                 <div class="topics">
-                    HTML Forms â€¢ SVG â€¢ Image Maps â€¢ Form Elements & Attributes
+                    HTML Forms • SVG • Image Maps • Form Elements & Attributes
                 </div>
                 <a href="Unit3_Forms_Graphics.html" class="link-button">View Topics</a>
             </div>
@@ -363,7 +383,7 @@
                 <h3>Unit 4: CSS Introduction</h3>
                 <p><strong>10% (3 hours)</strong></p>
                 <div class="topics">
-                    CSS Selectors â€¢ Box Model â€¢ Flexbox â€¢ Grid â€¢ Positioning
+                    CSS Selectors • Box Model • Flexbox • Grid • Positioning
                 </div>
                 <a href="Unit4_CSS_Intro.html" class="link-button">View Topics</a>
             </div>
@@ -372,7 +392,7 @@
                 <h3>Unit 5: CSS Effects & Animations</h3>
                 <p><strong>10% (4 hours)</strong></p>
                 <div class="topics">
-                    Gradients â€¢ Transforms â€¢ Transitions â€¢ Animations â€¢ Media Queries
+                    Gradients • Transforms • Transitions • Animations • Media Queries
                 </div>
                 <a href="Unit5_CSS_Effects.html" class="link-button">View Topics</a>
             </div>
@@ -381,7 +401,7 @@
                 <h3>Unit 6: Bootstrap Basics</h3>
                 <p><strong>10% (3 hours)</strong></p>
                 <div class="topics">
-                    Bootstrap Setup â€¢ Grid System â€¢ Utility Classes â€¢ Components
+                    Bootstrap Setup • Grid System • Utility Classes • Components
                 </div>
                 <a href="Unit6_Bootstrap.html" class="link-button">View Topics</a>
             </div>
@@ -390,7 +410,7 @@
                 <h3>Unit 7: Bootstrap Components</h3>
                 <p><strong>15% (4 hours)</strong></p>
                 <div class="topics">
-                    Navbar â€¢ Forms â€¢ Pagination â€¢ Carousel â€¢ Modal â€¢ Offcanvas
+                    Navbar • Forms • Pagination • Carousel • Modal • Offcanvas
                 </div>
                 <a href="Unit7_Bootstrap_Components.html" class="link-button">View Topics</a>
             </div>
@@ -399,7 +419,7 @@
                 <h3>Unit 8: JavaScript Basics</h3>
                 <p><strong>5% (3 hours)</strong></p>
                 <div class="topics">
-                    Data Types â€¢ Variables â€¢ Functions â€¢ Array Methods â€¢ Loops
+                    Data Types • Variables • Functions • Array Methods • Loops
                 </div>
                 <a href="Unit8_JavaScript_Basics.html" class="link-button">View Topics</a>
             </div>
@@ -408,7 +428,7 @@
                 <h3>Unit 9: DOM & Events</h3>
                 <p><strong>15% (3 hours)</strong></p>
                 <div class="topics">
-                    DOM Manipulation â€¢ Event Handling â€¢ Selectors â€¢ Style Changes
+                    DOM Manipulation • Event Handling • Selectors • Style Changes
                 </div>
                 <a href="Unit9_DOM_Events.html" class="link-button">View Topics</a>
             </div>
@@ -417,13 +437,13 @@
                 <h3>Unit 10: Async JavaScript</h3>
                 <p><strong>10% (3 hours)</strong></p>
                 <div class="topics">
-                    Promises â€¢ Async/Await â€¢ Fetch API â€¢ Form Validation â€¢ Storage
+                    Promises • Async/Await • Fetch API • Form Validation • Storage
                 </div>
                 <a href="Unit10_Async_Fetch.html" class="link-button">View Topics</a>
             </div>
         </div>
 
-        <h2 class="section-title">ðŸ“‹ Practical Projects & Hands-On Exercises</h2>
+        <h2 class="section-title">Practical Projects & Hands-On Exercises</h2>
 
         <div class="projects-grid">
             <div class="project-card">
@@ -464,7 +484,7 @@
         </div>
 
         <div class="useful-tips">
-            <h3>ðŸ’¡ Key Concepts to Master</h3>
+            <h3>Key Concepts to Master</h3>
             <ul>
                 <li><strong>CSS Specificity:</strong> ID > Class > Element. Remember importance of proper selector
                     usage.</li>
@@ -482,7 +502,7 @@
         </div>
 
         <div class="exam-tips">
-            <h3>ðŸŽ¯ Exam Preparation Tips</h3>
+            <h3>Exam Preparation Tips</h3>
             <ul>
                 <li>Practice all 24+ practicals provided in syllabus thoroughly</li>
                 <li>Create your own projects combining multiple units</li>
@@ -505,13 +525,17 @@
         </div>
 
         <div class="footer">
-            <div class="creator-badge">âœ¨ Created by DRThummar âœ¨</div>
-            <p>ðŸ’» Comprehensive FSD Practical Exam Preparation Material</p>
-            <p>ðŸ“… Updated: 2026 | ðŸ“š Course Code: 117013392</p>
-            <p>ðŸ”— <a href="https://github.com/DhruvilThummar/FSD-Ipe.git" target="_blank">GitHub Repository</a> |
-                ðŸ“– <a href="https://dhruvilthummar.github.io/FSD-Ipe" target="_blank">GitHub Pages</a></p>
+            <div class="creator-badge">Created by DRThummar</div>
+            <p>Comprehensive FSD Practical Exam Preparation Material</p>
+            <p>Updated: 2026 | Course Code: 117013392</p>
+            <p><a href="https://github.com/DhruvilThummar/FSD-Ipe.git" target="_blank">GitHub Repository</a> |
+                <a href="https://dhruvilthummar.github.io/FSD-Ipe" target="_blank">GitHub Pages</a>
+            </p>
         </div>
     </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
